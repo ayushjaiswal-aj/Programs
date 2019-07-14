@@ -1,17 +1,27 @@
 #include<stdio.h>
 int main()
 {
-   int x,y;
-   for (x=1;x<=50;x++)
+   int x,y,z,composite;
+   scanf ("%d",&z);
+   for (x=2;x<=z;x++)
    {
+   	composite = 0;
    	for(y=2;y<=x-1;y++)
    	{
    		if(x%y==0)
    		{
-   			printf("%d\n",x);
+   			composite =1;
    			break;
+   			
    		}
+   				
    		
+   	}
+   	if ( composite !=1)
+   	{
+   		
+   	    printf("%d\n",x);
+   	    
    	}
    }
    
@@ -19,6 +29,4 @@ int main()
    
    
 }
-    
-    
     
