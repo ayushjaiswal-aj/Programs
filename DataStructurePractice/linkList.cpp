@@ -1,30 +1,26 @@
 #include<iostream>
-
 using namespace std;
 
 struct node{
 	int data;
 	struct node *link;
 };  
-class linkList{ 
+class LinkList{
 	public:
-	node *createHead(int x){
-		struct node *head = new node;
+	struct node *head = new node;
+	void createHead(int x){
 		head->data = x;
 		head->link = NULL;
-		cout << "head: " << head->data << endl;
-		return head;
-	}
-	
-	void  *pushNode(struct node **head, int x){
+	}	
+	void  pushNode( int x){
 		struct node *newNode = new node;
 		newNode->data = x;
-		newNode->link = *head;
-		*head = newNode;
+		newNode->link = head;
+		head = newNode;
 	}
-	void display(struct node **head){
+	void display(){
 		struct node *p = new node;
-		p = *head;
+		p = head;
 		if (head != NULL){
 			cout << "head -> ";
 			while (p != NULL){
@@ -35,16 +31,16 @@ class linkList{
 		else {
 			cout <<"list is empty\n";
 		}
+		cout<<endl;
 	}
 };
-
 int main(){
-	class linkList l;
+	class LinkList l;
 	struct node *head = new node;
-	head = l.createHead(5);
-	l.pushNode(&head, 6);
-	l.pushNode(&head, 7);
-	l.pushNode(&head, 8);
-	l.display(&head);
+	l.createHead(5);
+	l.pushNode(6);
+	l.pushNode(7);
+	l.pushNode(8);
+	l.display();
 }	 	
 		
